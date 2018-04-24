@@ -10,6 +10,7 @@ import {
     StatusBar,
     ScrollView
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 
@@ -17,34 +18,35 @@ class PostScreen extends Component {
     
     render() {
         return(
-            <ScrollView >
+            //<ScrollView >
                 <View style={styles.container}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กวิศวะ</Text>
-                    </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กนิเทศ</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กครุฯ</Text>
-                    </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กถาปัตย์</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กวิทย์</Text>
-                    </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กนานาชาติ</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กเตรียม</Text>
-                    </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>เด็กยำ (รวม)</Text>
-                </TouchableOpacity>
+                {/* <Grid>
+                    <Col size={7}><TouchableOpacity style={styles.button}>
+                                    <Text style={styles.buttonText}>เด็กวิศวะ</Text>
+                                    </TouchableOpacity>
+                                <TouchableOpacity style={styles.button}>
+                                    <Text style={styles.buttonText}>เด็กนิเทศ</Text>
+                                    </TouchableOpacity></Col>
+                                    <Col size={1}></Col>
+                    <Col size={7}><TouchableOpacity style={styles.button}>
+                                    <Text style={styles.buttonText}>เด็กวิศวะ</Text>
+                                    </TouchableOpacity>
+                                <TouchableOpacity style={styles.button}>
+                                    <Text style={styles.buttonText}>เด็กนิเทศ</Text>
+                                    </TouchableOpacity></Col>
+                </Grid> */}
+                    <TouchableOpacity style={styles.button} onPress={()=> Actions.SelectEdu()} >
+                        <Text style={styles.buttonText}>เด็กครุฯ</Text>
+                        </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={()=> Actions.SelectEngi()} >
+                        <Text style={styles.buttonText}>เด็กวิศวะ</Text>
+                        </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={()=> Actions.SelectSci()} >
+                        <Text style={styles.buttonText}>เด็กวิทย์</Text>
+                        </TouchableOpacity>
+
                 </View>
-            </ScrollView>
+            //</ScrollView>
 
         );
     }
@@ -78,10 +80,17 @@ const styles = StyleSheet.create({
         marginVertical : 5,
         backgroundColor : '#FF6600',
         borderRadius : 10,
-        width : 380,
-        height : 80,
+        width : '100%',
+        height : 60,
         alignItems : 'center',
         justifyContent : 'center',
         
+    },
+    buttonText: {
+        fontSize : 22,
+        fontWeight : '300',
+        color : '#FFFFFF',
+        padding : 10,
+
     },
   });

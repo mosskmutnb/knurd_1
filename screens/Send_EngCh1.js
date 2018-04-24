@@ -14,17 +14,17 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 import { Actions } from 'react-native-router-flux'
 import Firebase from 'firebase'
 
-class Comment_screen extends Component {
+class Send_EngCh1 extends Component {
     constructor(props){
         super(props)
         userId = Firebase.auth().currentUser.uid;
-        this.countPost = Firebase.database().ref().child('countPost');
+        this.countEngCh1 = Firebase.database().ref().child('countEngCh1');
         this.category = Firebase.database().ref().child('Account/'+userId+'/category');
         this.name = Firebase.database().ref().child('Account/'+userId+'/nickname');
         this.state = {
-            post : null,
-            namePost : '',
-            countPost : '',
+            engch1 : null,
+            nameEngCh1 : '',
+            countEngCh1 : '',
             category : ''
         }
         this.onSubmit = this.onSubmit.bind(this)
@@ -32,12 +32,12 @@ class Comment_screen extends Component {
     componentDidMount(){
         this.name.on('value',snap => {
             this.setState({ 
-                namePost : snap.val()
+                nameEngCh1 : snap.val()
             });
         })
-        this.countPost.on('value',snap => {
+        this.countEngCh1.on('value',snap => {
             this.setState({ 
-                countPost : snap.val() +1
+                countEngCh1 : snap.val() +1
             });
         })
         this.category.on('value',snap => {
@@ -48,25 +48,25 @@ class Comment_screen extends Component {
     }
 ////
     onSubmit(){
-        Firebase.database().ref('Post/'+this.state.countPost).set({
-            detail : this.state.post,
-            user : this.state.namePost,
+        Firebase.database().ref('EngCh1/'+this.state.countEngCh1).set({
+            detail : this.state.engch1,
+            user : this.state.nameEngCh1,
             category : this.state.category
         })
-        updateToCountPost = {
-            countPost : this.state.countPost
+        updateToCountEngCh1 = {
+            countEngCh1 : this.state.countEngCh1
         };
-        Firebase.database().ref().update(updateToCountPost);
-        this.setState({post : ''})
+        Firebase.database().ref().update(updateToCountEngCh1);
+        this.setState({engch1 : ''})
     }
     render() {
           return(
                 <View style={styles.container}>
                     <TextInput
                         style={styles.textInput}
-                        placeholder='Post'
-                        onChangeText={(post) => this.setState({post: post})}
-                        value={this.state.post}
+                        placeholder='EngCh1'
+                        onChangeText={(engch1) => this.setState({engch1: engch1})}
+                        value={this.state.engch1}
                         underlineColorAndroid ='rgba(255,255,255,0)'
                         keyboardAppearance = 'dark'
                     />
@@ -80,34 +80,7 @@ class Comment_screen extends Component {
           );
       }
 }
-export default Comment_screen;
-
-// const card = () => (
-// <ScrollView>
- 
-//  <Card>
-//    <CardTitle
-//      subtitle="Number 6"
-//    />
-//    <CardContent text="Clifton, Western Cape" />
-//    <CardAction 
-//      separator={true} 
-//      inColumn={false}>
-//      <CardButton
-//        onPress={() => {}}
-//        title="Share"
-//        color="#FEB557"
-//      />
-//      <CardButton
-//        onPress={() => {}}
-//        title="Explore"
-//        color="#FEB557"
-//      />
-//    </CardAction>
-//  </Card>
-//  <Text>NewsScreen</Text>
-//  </ScrollView>
-// );
+export default Send_EngCh1;
 
 const styles = StyleSheet.create({
     container: {

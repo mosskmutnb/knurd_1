@@ -15,6 +15,7 @@ import { Divider } from 'react-native-elements';
 import { Constants } from 'expo';
 
 
+
 class ProfileScreen extends Component {
     constructor(props) {
         super(props);
@@ -135,7 +136,9 @@ class ProfileScreen extends Component {
                     >
                         <Text style={styles.buttonText}>Log out</Text>  
                     </TouchableOpacity>
-                </View>
+                    
+                </View> 
+                
             </View>
         );
     }
@@ -174,15 +177,13 @@ const styles = StyleSheet.create({
         padding : 10,
     },
     button: {
-        marginVertical : 25,
-        backgroundColor : '#FFFACD',
-        borderRadius : 30,
-        width : 220,
+        marginVertical : 5,
+        backgroundColor : '#3399FF',
+        borderRadius : 10,
+        width : 340,
         height : 50,
         alignItems : 'center',
         justifyContent : 'center',
-        borderWidth : 2,
-        borderColor : '#778899'
     },
     alertText: {
         color : '#660000',

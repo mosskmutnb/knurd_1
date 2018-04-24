@@ -7,7 +7,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     TextInput,
-    StatusBar
+    StatusBar,
     } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Firebase from 'firebase';

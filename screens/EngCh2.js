@@ -7,25 +7,23 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome'; 
-import ComponentPost from './componentPost';
-import Comment_Screen from './Comment_Screen'
+import Send_EngCh2 from './Send_EngCh2';
+import Show_EngCh2 from './Show_EngCh2'
 
-
-class LiveScreen extends Component {
+class EngCh2 extends Component {
     render() {
         return(
             <View style={{
               flex : 1,
             }}>
-                <Comment_Screen />
-                <ComponentPost />
+                <Send_EngCh2 />
+                <Show_EngCh2 />
                 
             </View>
         );
     }
 }
-export default LiveScreen;
-
+export default EngCh2;
 const styles = StyleSheet.create({
     container: {
         flex : 1,
